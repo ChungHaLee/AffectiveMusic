@@ -1,0 +1,157 @@
+/* @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap'); */
+
+body { 
+    background-image : url('https://browsecat.net/sites/default/files/windows-98-backgrounds-129465-970429-6399717.png');
+    text-align: center;
+}
+
+
+h4 {
+    padding-top: 200px;
+    margin : 0 auto;
+    font-family: "Bakbak One";
+    font-size: 3.5rem;
+    text-align: center;
+    text-shadow: 0 0 4.4px black;
+    width: 1000px;
+    color: #fff;
+    border-radius: 30px;
+}
+
+div#haptic{
+  margin-bottom: 400px;
+}
+
+
+/* BUTTON STYLES - CSS */
+button.affectiveWords {
+  margin-top: 80px;
+  appearance: button;
+  background-color: #af2862;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 200px;
+  height: 70px;
+  font-size: 1.4rem;
+}
+
+button.affectiveWords:after {
+  background-clip: padding-box;
+  background-color: #e23681;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button.affectiveWords:main,
+button.affectiveWords:focus {
+  user-select: auto;
+}
+
+button.affectiveWords:hover:not(:disabled) {
+  filter: brightness(1.3);
+  -webkit-filter: brightness(1.3);
+}
+
+button.affectiveWords:disabled {
+  cursor: auto;
+}
+
+
+
+
+
+
+
+
+
+
+/* BUTTON STYLES - CSS */
+button.affectiveWords_result {
+  appearance: button;
+  background-color: #349edf;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 200px;
+  height: 50px;
+  font-size: 1.4rem;
+}
+
+button.affectiveWords_result:after {
+  background-clip: padding-box;
+  background-color: #3678e2;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button.affectiveWords_result:main,
+button.affectiveWords_result:focus {
+  user-select: auto;
+}
+
+button.affectiveWords_result:hover:not(:disabled) {
+  filter: brightness(1.3);
+  -webkit-filter: brightness(1.3);
+}
+
+button.affectiveWords_result:disabled {
+  cursor: auto;
+}
