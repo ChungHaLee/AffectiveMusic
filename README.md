@@ -12,7 +12,7 @@ Toy Project for Sound Design Programming (Class 2022-1)
 ```
 python app.py
 ```
-app.py 를 실행시켜주시면 됩니다.
+**app.py** 를 실행시켜주시면 됩니다.
 
 
 ## from 정하...
