@@ -5,29 +5,29 @@
     <title>Affective Music</title>
 
     <meta name="viewport" content="width=device-width" initial-scale="1.0">
-    <link type="text/css" rel="stylesheet" href="../static/style.css">
+    <link type="text/css" rel="stylesheet" href="../static/style.css?after">
 
 </head>
 
 <body>
 
-    <h4> Result of "{{ word }}" </h4>
+    <h2> Result of "{{ word }}" </h2>
 
     <div id="haptic">
         <p> {{ haptic }} </p>
     </div>
 
-    <form action="/result" method="POST" form autocomplete="off">
-        <button class="affectiveWords_result" name="word_type" id="word_dynamic" value="dynamic">다이나믹한</button>
-        <button class="affectiveWords_result" name="word_type" id="word_energetic" value="energetic">에너제틱한</button>
-        <button class="affectiveWords_result" name="word_type" id="word_catchy" value="catchy">시선을 확 끄는</button>
-        <button class="affectiveWords_result" name="word_type" id="word_relaxed" value="relaxed">차분한</button>
+    <p id="tryAnother"> Try another emotional word ... </p>
+    <form action="/result" method="POST" form autocomplete="off" id="result">
+        <button class="affectiveWords_result" name="word_type" id="word_amazement" value="amazement">Amazement</button>
+        <button class="affectiveWords_result" name="word_type" id="word_tenderness" value="tenderness">Tenderness</button>
+        <button class="affectiveWords_result" name="word_type" id="word_nostalgia" value="nostalgia">Nostalgia</button>
+        <button class="affectiveWords_result" name="word_type" id="word_calmness" value="calmness">Calmness</button>
         <br>
-        <button class="affectiveWords_result" name="word_type" id="word_bored" value="bored">지루한</button>
-        <button class="affectiveWords_result" name="word_type" id="word_fear" value="fear">두려운</button>
-        <button class="affectiveWords_result" name="word_type" id="word_sad" value="sad">슬픈</button>
-        <button class="affectiveWords_result" name="word_type" id="word_angry" value="angry">화나는</button>
-        <button class="affectiveWords_result" name="word_type" id="word_annoyed" value="annoyed">짜증나는</button>
+        <button class="affectiveWords_result" name="word_type" id="word_power" value="power">Power</button>
+        <button class="affectiveWords_result" name="word_type" id="word_joyful" value="joyful">Joyful</button>
+        <button class="affectiveWords_result" name="word_type" id="word_tension" value="tension">Tension</button>
+        <button class="affectiveWords_result" name="word_type" id="word_sadness" value="sadness">Sadness</button>
     </form>
 </body>
 </html>
