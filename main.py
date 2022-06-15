@@ -10,58 +10,115 @@ import pygame
 from flask import Flask, render_template, request
 from multiprocessing import Process, Manager
 
+import sys
+
+# if sys.version_info[:2] >= (3, 7):
+#     from asyncio import get_running_loop
+# else:
+#     from asyncio import _get_running_loop as get_running_loop
+
 
 # 정하가 만든 html 코드입니다. 따로 수정은 안했지만, haptic 코드 대신에 Global 역할로 공용변수를 수정하는 코드를 넣었습니다.
 # ---------------------------------------------------------------------
 app = Flask(__name__)
-@app.route('/')
 
+@app.route('/')
 def index():
   return render_template('index.html')
 
 def word_name_get(app, word):
   app.word_list[0] = word
 
-@app.route('/result', methods=['POST'])
-def result():
+@app.route('/amazement', methods=['GET', 'POST'])
+def amazement():
   if request.method == 'POST':
     if request.form['word_type'] == 'amazement':
-      word = 'Amazement'
+      word = 'amazement'
       word_name_get(app, word)
-      #haptic = haptic_function()  # 감정 단어에 맞게 햅틱 함수를 다르게 하면 될듯. haptic_dynamic, haptic_sad 이런식으로...
-    elif request.form['word_type'] == 'tenderness':
-      word = 'Tenderness'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'nostalgia':
-      word = 'Nostalgia'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'calmness':
-      word = 'Calmness'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'power':
-      word = 'Power'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'joyful':
-      word = 'Joyful'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'tension':
-      word = 'Tension'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    elif request.form['word_type'] == 'sadness':
-      word = 'Sadness'
-      word_name_get(app, word)
-      #haptic = haptic_function()
-    else:
-      pass
   elif request.method == 'GET':
     pass
-  return render_template('result.html', word=word, haptic=None)
+  return render_template('amazement.html', word=word)
+
+
+@app.route('/tenderness', methods=['GET', 'POST'])
+def tenderness():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'tenderness':
+      word = 'tenderness'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('tenderness.html', word=word)
+
+
+
+@app.route('/nostalgia', methods=['GET', 'POST'])
+def nostalgia():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'nostalgia':
+      word = 'nostalgia'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('nostalgia.html', word=word)
+
+
+
+@app.route('/calmness', methods=['GET', 'POST'])
+def calmness():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'calmness':
+      word = 'calmness'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('calmness.html', word=word)
+
+
+
+@app.route('/power', methods=['GET', 'POST'])
+def power():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'power':
+      word = 'power'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('power.html', word=word)
+
+
+@app.route('/joyful', methods=['GET', 'POST'])
+def joyful():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'joyful':
+      word = 'joyful'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('joyful.html', word=word)
+
+
+@app.route('/tension', methods=['GET', 'POST'])
+def tension():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'tension':
+      word = 'tension'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('tension.html', word=word)
+
+
+@app.route('/sadness', methods=['GET', 'POST'])
+def sadness():
+  if request.method == 'POST':
+    if request.form['word_type'] == 'sadness':
+      word = 'sadness'
+      word_name_get(app, word)
+  elif request.method == 'GET':
+    pass
+  return render_template('sadness.html', word=word)
+
 
 def app_function(word_list):    # multiprocessing 실행을 위해 임의로 설정했습니다.
     app.word_list = word_list
