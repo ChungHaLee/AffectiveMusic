@@ -6,7 +6,6 @@ Toy Project for Sound Design Programming (Class 2022-1)
 - conda 4.10.3
 - python 3.8.5
 - Flask 2.0.3
-- **여기에 햅틱 코드 붙이면 추가되는 라이브러리를 추가해주세요!**
 - neosensory-python 0.0.1
 - librosa 0.9.1
 - pygame 2.1.2
