@@ -2,7 +2,7 @@ import numpy as np
 import librosa
 
 def Music_Name_To_Path(Music_array):    #음악 이름 array를 path로 바꿔주는 함수입니다. 음악 파일, 확장자명이 변경되면 수정이 필요
-    path = "music/"
+    path = "static/music/"
     file_type = ".mp3"
     for i in range(len(Music_array)):
         Music_array[i] = path + Music_array[i] + file_type
