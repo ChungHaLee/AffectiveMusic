@@ -21,14 +21,14 @@ def amplitude_maker(file, fps):     #fps 값으로 Amplitude haptic pattern으�
 
 
 # 감정 키워드 함수입니다. 늘어나면 같이 추가하면 됩니다.
-Emotion_array = ["Amazement",
-                 "Tenderness",
-                 "Nostalgia",
-                 "Calmness",
-                 "Power",
-                 "Jpyful",
-                 "Tension",
-                 "Sadness"]
+Emotion_array = ["amazement",
+                 "tenderness",
+                 "nostalgia",
+                 "calmness",
+                 "power",
+                 "jpyful",
+                 "tension",
+                 "sadness"]
 
 # 음악 이름입니다, 만약 haptic array 저장 코드가 주석으로 되어 있으면 음악 이름 변경 후, 밑의 코드를 실행해야합니다.
 Music_array   = ["amazement",
@@ -36,7 +36,7 @@ Music_array   = ["amazement",
                  "nostalgia",
                  "calmness",
                  "power",
-                 "joyful_activation",
+                 "joyful",
                  "tension",
                  "sadness"]
 
