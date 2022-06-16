@@ -3,11 +3,11 @@ import * as THREE from 'three';
 let scene, camera, renderer, analyser, uniforms;
 
 const startButton = document.getElementById( 'startButton' );
-startButton.addEventListener( 'click', init );
+startButton.click();
 
 const now_word = document.getElementById( 'now_word' ).innerText;
 
-
+init();
 function init() {
     startButton.style.display = 'none';
     const fftSize = 128;
