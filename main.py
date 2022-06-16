@@ -129,10 +129,11 @@ def app_function(word_list):    # multiprocessing 실행을 위해 임의로 설
 
 # Haptic 디바이스 제어 코드입니다. 상단 코드와 동시에 processing으로 실행이 됩니다.
 
-global Play, Music_index, Flag1_MusicReset
-
+global Play, Music_index, Flag1_MusicReset, Flag2_MusicStart
 def Emotion_Music_selecter(Music_index):    # Html에서 선택한 감정 단어에 맞는 haptic pattern을 찾아주는 함수입니다.
-    global Flag1_MusicReset                 # 추가로 감정이 변경되었다는 신호도 체크하고 있습니다.
+    global Flag1_MusicReset, Flag2_MusicStart    # 추가로 감정이 변경되었다는 신호도 체크하고 있습니다. (++ Start 버튼도 체크하고 있습니다)
+    if word_list[1] == "Start":
+        Flag2_MusicStart = True
     if word_list[0] != "None":
         index = np.where(Emotion_array == word_list[0])[0][0]
         if index != Music_index:
@@ -145,10 +146,11 @@ def Flag_checking(Music_index):             # 음악 진행 도중에 감정을 
     return Music_index != np.where(Emotion_array == word_list[0])[0][0]
 
 async def run(loop):        # haptic 디바이스 제어 코드입니다. async로 진행되어 디바이스 연결부터 전부 하나의 코드로 만들어져야 합니다.
-    global Play, Music_index, Flag1_MusicReset
+    global Play, Music_index, Flag1_MusicReset, Flag2_MusicStart
     Play = False
     Music_index = -1
     Flag1_MusicReset = False
+    Flag2_MusicStart = False
     fps = 10
     haptic_array = np.load("haptic_array.npy")
 
@@ -181,13 +183,15 @@ async def run(loop):        # haptic 디바이스 제어 코드입니다. async�
                     print("-----------------")# 첫 코드를 실행할 경우 이 print가 실행된 이후에 음악을 골라야 원할한 진행이 됩니다.
                     while True:               # 음악이 선택되기 전까지는 이 loop에서 선택을 기다립니다.
                         Music_index = Emotion_Music_selecter(Music_index)
-                        if Flag1_MusicReset == True:    # 음악이 선택되면 flag를 통해 인식되면
+                        if Flag1_MusicReset:    # 음악이 선택되면 flag를 통해 인식되면
                             print("Music selected")     # 기본적인 parameter를 설정하고 loop를 빠져나갑니다.
                             Flag1_MusicReset = False
                             arr_buzz = haptic_array[Music_index]
                             print("CHeck1", arr_buzz)
-                            Play = True
                             break
+                        if Flag2_MusicStart:
+                            Flag2_MusicStart = False
+                            Play = True
                     time.sleep(0.01)
                 elif Play == True:      # 음악 실행 코드입니다.
                     print("Music Play Mode")
@@ -216,6 +220,7 @@ async def run(loop):        # haptic 디바이스 제어 코드입니다. async�
                                 Flag1_MusicReset = True
                                 Play = False
                                 Fin_check = True
+                                word_list[1] = "Stop"
                                 a += 9000000    # 강제로 Timeout시키는 방식으로 종료 >> 그래야 buzz 출력을 0으로 설정 가능
                             if a > length-1:       # 디바이스의 종료 여부를 확인하고 마지막 출력이 0이 되도록 설정합니다.
                                 buzz_vibration_frame = [0, 0, 0, 0]
@@ -231,6 +236,7 @@ if __name__ == "__main__":
     manager = Manager()
     word_list = manager.list()
     word_list.append("None")
+    word_list.append("Stop")
     proc = Process(target=app_function, args=(word_list,))
     proc.start()
     loop = asyncio.get_event_loop()
